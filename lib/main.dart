@@ -1,20 +1,33 @@
 import 'package:flutter/material.dart';
 
+import 'home_screen.dart';
+
 void main() {
-  runApp(const MainApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const MyApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+    return MaterialApp(
+      theme: ThemeData(
+        useMaterial3: true,
+        appBarTheme: AppBarTheme(
+          backgroundColor: ColorScheme.fromSeed(
+            seedColor: Colors.deepPurple,
+          ).primaryContainer,
+        ),
+        textTheme: const TextTheme(
+          titleMedium: TextStyle(
+            fontFamily: 'Chewy',
+            fontSize: 20,
+          ),
         ),
       ),
+      home: const MyHomePage(),
     );
   }
 }
