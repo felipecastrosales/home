@@ -26,6 +26,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
+        // TODO:
         onPressed: () async {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
@@ -84,17 +85,17 @@ class LineChartPainter extends CustomPainter {
       ..strokeWidth = 2
       ..style = PaintingStyle.stroke;
 
-    final mockDataPoints = [
-      const Offset(15, 155),
-      const Offset(20, 133),
-      const Offset(34, 125),
-      const Offset(40, 105),
-      const Offset(70, 85),
-      const Offset(80, 95),
-      const Offset(90, 60),
-      const Offset(120, 54),
-      const Offset(160, 60),
-      const Offset(200, -10),
+    const mockDataPoints = [
+      Offset(15, 155),
+      Offset(20, 133),
+      Offset(34, 125),
+      Offset(40, 105),
+      Offset(70, 85),
+      Offset(80, 95),
+      Offset(90, 60),
+      Offset(120, 54),
+      Offset(160, 60),
+      Offset(200, -10),
     ];
 
     final axis = Path()
