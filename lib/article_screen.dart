@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homes/home_screen.dart';
 import 'news_data.dart';
 
 class ArticleScreen extends StatefulWidget {
@@ -26,13 +27,13 @@ class _ArticleScreenState extends State<ArticleScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        // TODO:
-        onPressed: () async {
+        onPressed: () {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               content: Text('Updating home screen widget...'),
             ),
           );
+          updateHeadline(widget.article);
         },
         label: const Text('Update Homescreen'),
       ),
