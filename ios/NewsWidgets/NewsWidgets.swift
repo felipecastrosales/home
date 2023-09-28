@@ -21,10 +21,9 @@ struct Provider: TimelineProvider {
         if context.isPreview {
             print("APP: isPreview")
             entry = placeholder(in: context)
-        }
-        else {
+        } else {
             /// Get the data from the user defaults to display
-            let userDefaults = UserDefaults(suiteName: "group.com.felipecastrosales.home")
+            let userDefaults = UserDefaults(suiteName: "group.HW5BGGMK8X.com.felipecastrosales.home")
             print("APP: userDefaults: \(userDefaults) - \(userDefaults?.string(forKey: "headline_title")) - \(userDefaults?.string(forKey: "headline_description"))")
             let title = userDefaults?.string(forKey: "headline_title") ?? "No Title Set"
             let description = userDefaults?.string(forKey: "headline_description") ?? "No Description Set"

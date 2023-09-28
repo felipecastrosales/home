@@ -4,7 +4,7 @@ import 'package:home_widget/home_widget.dart';
 import 'article_screen.dart';
 import 'news_data.dart';
 
-const String appGroupId = 'group.com.felipecastrosales.home';
+const String appGroupId = 'group.HW5BGGMK8X.com.felipecastrosales.home';
 const String iOSWidgetName = 'NewsWidgets';
 const String androidWidgetName = 'NewsWidget';
 
