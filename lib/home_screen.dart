@@ -4,7 +4,7 @@ import 'package:home_widget/home_widget.dart';
 import 'article_screen.dart';
 import 'news_data.dart';
 
-const String appGroupId = 'group.felipecastrosaleshome';
+const String appGroupId = 'group.com.felipecastrosales.home';
 const String iOSWidgetName = 'NewsWidgets';
 const String androidWidgetName = 'NewsWidget';
 
@@ -25,6 +25,7 @@ void updateHeadline(NewsArticle newHeadline) {
     newHeadline.description,
   );
   HomeWidget.updateWidget(
+    name: androidWidgetName,
     iOSName: iOSWidgetName,
     androidName: androidWidgetName,
   );
@@ -35,8 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     HomeWidget.setAppGroupId(appGroupId);
-    final newHeadline = NewsHelpers.newsStoriesData[0];
-    updateHeadline(newHeadline);
+    updateHeadline(NewsHelpers.newsStoriesData[0]);
   }
 
   @override
@@ -51,7 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
           color: Colors.black,
         ),
       ),
-      
       body: ListView.separated(
         separatorBuilder: (context, index) => const Divider(),
         itemCount: NewsHelpers.newsStoriesData.length,
@@ -62,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
             title: Text(article.title),
             subtitle: Text(article.description),
             onTap: () {
+              updateHeadline(article);
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) {

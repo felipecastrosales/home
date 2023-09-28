@@ -27,7 +27,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
+        onPressed: () async {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
               content: Text('Updating home screen widget...'),
