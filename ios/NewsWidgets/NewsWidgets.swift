@@ -53,13 +53,33 @@ struct NewsArticleEntry: TimelineEntry {
     let description: String
 }
 
-/// View that holds the contents of the widget
+
 struct NewsWidgetsEntryView : View {
     var entry: Provider.Entry
 
+    init(entry: Provider.Entry){
+            self.entry = entry
+            CTFontManagerRegisterFontsForURL(
+                bundle.appending(path: "/fonts/Chewy-Regular.ttf") as CFURL,
+                CTFontManagerScope.process, nil
+            )
+        }
+    
+    // New: Add the helper function.
+    var bundle: URL {
+            let bundle = Bundle.main
+            if bundle.bundleURL.pathExtension == "appex" {
+                // Peel off two directory levels - MY_APP.app/PlugIns/MY_APP_EXTENSION.appex
+                var url = bundle.bundleURL.deletingLastPathComponent().deletingLastPathComponent()
+                url.append(component: "Frameworks/App.framework/flutter_assets")
+                return url
+            }
+            return bundle.bundleURL
+        }
+
     var body: some View {
         VStack {
-            Text(entry.title)
+            Text(entry.title).font(Font.custom("Chewy", size: 13))
             Text(entry.description)
         }
     }
@@ -76,19 +96,3 @@ struct NewsWidgets: Widget {
         .description("This is an example widget.")
     }
 }
-
-/// Initial preview generation
-// struct NewsWidgets_Previews: PreviewProvider {
-//     static var previews: some View {
-//         NewsWidgetsEntryView(entry: SimpleEntry(date: Date()))
-//             .previewContext(WidgetPreviewContext(family: .systemSmall))
-//     }
-// }
-
-/// Another preview.
-//struct NewsWidgets_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NewsWidgetsEntryView(entry: NewsArticleEntry(date: Date(), title: "Preview Title", description: "Preview description", filename: "No Screenshot available"))
-//            .previewContext(WidgetPreviewContext(family: .systemSmall))
-//    }
-//}
