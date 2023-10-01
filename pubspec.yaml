@@ -10,7 +10,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
-  home_widget: ^0.3.0-alpha.1
+  home_widget: ^0.4.0-alpha.0
   shared_preferences: ^2.2.1
 
 dev_dependencies:
